@@ -42,7 +42,7 @@ Iarlon Soares da Silva Oliveira
 
 #### Requisitos Não Funcionais
 
-- **RNF001 - Desempenho da API:**
+- **RNF001 - Desempenho da API rota movies:**
   - A API deve ser capaz de processar pelo menos 100 solicitações de criação de filmes por segundo.
   - O tempo médio de resposta para a criação de um novo filme não deve exceder 200 milissegundos.
   - A API deve ser capaz de responder a solicitações GET de listagem de filmes em menos de 100 milissegundos.
@@ -87,7 +87,7 @@ Iarlon Soares da Silva Oliveira
 
 #### Requisitos Não Funcionais
 
-- **RNF002 - Desempenho da API:**
+- **RNF002 - Desempenho da API rota tickets:**
   - A API deve ser capaz de processar pelo menos 20 solicitações de reserva de ingressos por segundo.
   - O tempo médio de resposta para a reserva de um ingresso não deve exceder 300 milissegundos.
   - A API deve ser capaz de processar pelo menos 30 solicitações de exclusão de tickets por segundo.
@@ -134,6 +134,16 @@ Os testes serão feitos na API: Cinema API. Utilizando da ferramenta Postman par
 | RF010        | Excluindo um ticket por ID        | CT029 – Excluir ticket com `id` inexistente        | Média     | Não Executado  |
 | RF010        |                                   | CT030 – Excluir ticket com `id` de ticket existente        | Alta      | Não Executado  |
 | RF010        |                                   | CT031 – Excluir ticket com tickets cadastrados             | Alta      | Não Executado  |
+| RNF001     | Desempenho da API rota movies | CT032 - Smoke test rota movies | Alta      | Não Executado  |
+| RNF001     |                                    | CT033 - Load test rota movies | Alta      | Não Executado  |
+| RNF001     |                                    | CT034 - Pike test rota movies | Alta      | Não Executado  |
+| RNF001     |                                    | CT035 - Stress test rota movies | Média      | Não Executado  |
+| RNF001     |                                    | CT036 - BreakPoint test rota movies | Baixa      | Não Executado  |
+| RNF002     | Desempenho da API rota movies | CT037 - Smoke test rota tickets | Alta      | Não Executado  |
+| RNF002     |                                    | CT038 - Load test rota tickets | Alta      | Não Executado  |
+| RNF002     |                                    | CT039 - Pike test rota tickets | Alta      | Não Executado  |
+| RNF002     |                                    | CT040 - Stress test rota tickets | Média      | Não Executado  |
+| RNF002     |                                    | CT041 - BreakPoint test rota tickets | Baixa      | Não Executado  |
 
 ### Legenda:
 - **Requisito ID**: Referência ao requisito funcional do sistema.
@@ -142,22 +152,20 @@ Os testes serão feitos na API: Cinema API. Utilizando da ferramenta Postman par
 - **Prioridade**: Indicação da importância do teste (Alta, Média, Baixa).
 - **Status**: Situação atual da execução do teste (Não Executado, Em Andamento, Aprovado, Reprovado).
 
-
-	
 ## 7.	Como os resultados dos testes serão divulgados
-Irá ter print dos resultados obtidos na ferramenta do Postman junto ao suas descrições como por exemplo:<br>
-Cenário: Os usuários deverão criar uma conta;<br>
-CT001 – Testar os campos obrigatórios do usuário<br>
-Objetivo do teste: Deverá ser utilizado o POST de usuários, inserindo dados válidos em cada campo e validá-lo.<br>
-Resultado esperado: O usuário deverá receber um CODE 201 e uma mensagem “cadastro realizado com sucesso” junto ao seu id.<br>
-Resultado obtido: O usuário recebe o CODE 201 e seu id.<br>
+Irá ter print dos resultados obtidos no framework do K6 junto a suas métricas e threslholds:<br>
+Cenário: Criando um Novo Filme;<br>
+CT001 – Criar filme com descrição vazia<br>
+Objetivo do teste: Deverá ser utilizado o POST de movies, inserindo dados válidos porém com descrição vazia.<br>
+Resultado esperado: O usuário deverá receber um status 400<br>
+Resultado obtido: O usuário recebe o status 400.<br>
 
 ### 7.1 Casos de teste
 Casos de testes serão compartilhados em um arquivo separado, onde será explicado e junto com suas evidências.<a href="./"></a>
+
 ## 8.   Testes candidatos à automação
+Para garantir uma maior cobertura de cobertura, iria criar um fluxo de criação de filme onde o usuário com permissão iria criar um filme, iria pesquisar por meio do ID do filme, iria então criar diversos tickets para esse filme e buscar os tickets.
 
 ## 9.	Cronograma.
 Período de início: 23/09/24<br>
-Data de entrega: 04/07/24
-
-<a href="../README.md">README</a>
+Data de entrega: 04/10/24
