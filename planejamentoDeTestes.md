@@ -3,43 +3,146 @@
 Cinema API
 
 ## 2.	Resumo
-Iniciou-se testes a uma API de Cinema onde por meio de sua própria documentação, podemos identificar seus critérios e 2 users story, onde deveríamos criar testes de validação e relatar caso tenha algum bug na issues do gitlab. Para isso iremos fazer testes manuais no Postman e k6 para testes de performance.
+Iniciou-se testes a uma API de Cinema onde por meio de sua própria documentação, podemos identificar seus critérios e 2 users story, por meio delas deveríamos criar testes de validação e relatar caso tenha algum bug na issues do gitlab. Para isso iremos fazer testes manuais no Postman e k6 para testes de performance.
 
 ### 2.1 Mapa mental
-Para melhor entendimento foi criado também o mapa mental como forma de nortear a sequência tomada para produzir o planejamento e os testes no Postman.<br>
-<img src="./assets/Userstory.png" alt="Mapa mental" style="width:550px; height: 600px;">
+Para melhor entendimento foi criado também o mapa mental como forma de nortear a sequência tomada para produzir o planejamento que seria utilizado para a criação dos testes.<br>
 ## 3.	Pessoas envolvidas
 Iarlon Soares da Silva Oliveira
-## 4.	Cenários de testes
--   Criando um Novo Filme;
--   Obter a lista de filmes;
--   Obter detalhes de um filme por ID;
--   Atualizando os detalhes de um filme por ID;
--   Excluindo um filme por ID;
--   Criando ticket para um filme;
--   Obter lista de tickets;
--   Deletar ticket pelo ID do ticket;
--   Obter ticket pelo ID;
--   Atualizando os detalhes de um ticket por ID;
+## 4. Requisitos Funcionais e Não Funcionais
+
+### Movies
+
+#### Requisitos Funcionais
+
+- **RF001 - Criando um Novo Filme:**
+  - O usuário administrador da API envia uma solicitação POST para o endpoint `/movies` com os detalhes do filme.
+  - O sistema valida os campos obrigatórios e a unicidade do título.
+  - Se as validações passarem, o sistema cria o filme e atribui um ID único.
+  - O sistema retorna uma resposta de sucesso com o status 201 Created, incluindo o ID do filme.
+
+- **RF002 - Obtendo a Lista de Filmes:**
+  - O usuário envia uma solicitação GET para o endpoint `/movies`.
+  - O sistema retorna uma lista de todos os filmes cadastrados com detalhes.
+
+- **RF003 - Obtendo Detalhes de um Filme por ID:**
+  - O usuário envia uma solicitação GET para o endpoint `/movies/{id}`, onde `{id}` é o ID do filme desejado.
+  - O sistema verifica se o filme existe e retorna seus detalhes.
+  - Caso o filme não exista, o sistema retorna um erro com o status 404 Not Found.
+
+- **RF004 - Atualizando os Detalhes de um Filme por ID:**
+  - O usuário administrador da API envia uma solicitação PUT para o endpoint `/movies/{id}`, onde `{id}` é o ID do filme a ser atualizado.
+  - O sistema valida os dados e atualiza os detalhes do filme.
+  - O sistema retorna uma resposta de sucesso com o status 200 OK e os detalhes atualizados.
+  - Caso contrário, retorna status 400.
+
+- **RF005 - Excluindo um Filme por ID:**
+  - O sistema verifica a existência do filme e o remove permanentemente do banco de dados.
+  - O sistema retorna uma resposta de sucesso com o status 200 OK.
+
+#### Requisitos Não Funcionais
+
+- **RNF001 - Desempenho da API:**
+  - A API deve ser capaz de processar pelo menos 100 solicitações de criação de filmes por segundo.
+  - O tempo médio de resposta para a criação de um novo filme não deve exceder 200 milissegundos.
+  - A API deve ser capaz de responder a solicitações GET de listagem de filmes em menos de 100 milissegundos.
+  - A lista de filmes deve ser paginada, com no máximo 20 filmes por página.
+  - A API deve ser capaz de responder a solicitações GET de detalhes de um filme em menos de 50 milissegundos.
+  - A API deve ser capaz de processar pelo menos 50 solicitações de atualização de filmes por segundo.
+  - O tempo médio de resposta para a atualização dos detalhes de um filme não deve exceder 300 milissegundos.
+  - A API deve ser capaz de processar pelo menos 30 solicitações de exclusão de filmes por segundo.
+  - O tempo médio de resposta para a exclusão de um filme não deve exceder 400 milissegundos.
+
+### Tickets
+
+#### Requisitos Funcionais
+
+- **RF006 - Criando um Ticket:**
+  - O usuário envia uma solicitação POST para o endpoint `/tickets`.
+  - O sistema valida se todos os campos obrigatórios estão preenchidos corretamente.
+  - O sistema verifica se o número do assento está entre 0 e 99.
+  - O sistema verifica se o preço do ingresso está entre 0 e 60.
+  - Se as validações passarem, o sistema cria uma reserva de ingresso com os detalhes fornecidos.
+  - O sistema atribui um ID único à reserva de ingresso.
+  - O sistema retorna uma resposta de sucesso com o status 201 Created, incluindo o ID da reserva.
+
+- **RF007 - Obter lista de tickets:**
+  - O usuário envia uma solicitação GET para o endpoint `/tickets`.
+  - O sistema retorna uma lista de todos os tickets cadastrados com detalhes.
+
+- **RF008 - Obtendo Detalhes de um Ticket por ID:**
+  - O usuário envia uma solicitação GET para o endpoint `/tickets/{id}`, onde `{id}` é o ID do ticket desejado.
+  - O sistema verifica se o ticket existe e retorna seus detalhes.
+  - Caso o ticket não exista, o sistema retorna um erro com o status 404 Not Found.
+
+- **RF009 - Atualizando os Detalhes de um Ticket por ID:**
+  - O usuário administrador da API envia uma solicitação PUT para o endpoint `/tickets/{id}`, onde `{id}` é o ID do ticket a ser atualizado.
+  - O sistema valida os dados e atualiza os detalhes do ticket.
+  - O sistema retorna uma resposta de sucesso com o status 200 OK e os detalhes atualizados.
+  - Caso contrário, retorna status 400.
+
+- **RF010 - Excluindo um Ticket por ID:**
+  - O sistema verifica a existência do ticket e o remove permanentemente do banco de dados.
+  - O sistema retorna uma resposta de sucesso com o status 200 OK.
+
+#### Requisitos Não Funcionais
+
+- **RNF002 - Desempenho da API:**
+  - A API deve ser capaz de processar pelo menos 20 solicitações de reserva de ingressos por segundo.
+  - O tempo médio de resposta para a reserva de um ingresso não deve exceder 300 milissegundos.
+  - A API deve ser capaz de processar pelo menos 30 solicitações de exclusão de tickets por segundo.
+  - O tempo médio de resposta para a exclusão de um ticket não deve exceder 400 milissegundos.
+
+
 
 ## 5.	Local dos testes
-Os testes serão feitos na API da CompassUOL: Cinema API. Utilizando da ferramenta Postman para realização desses testes.
-## 6.	Casos de testes
-Link para o relatório de testes -> <a href="./relatorio_de_teste.md">aqui</a>
-|Cenários|Casos de teste|
-|:---:|:---:|
-|Os usuários deverão criar uma conta|CT001 – Testar os campos obrigatórios do usuarios;|
-|Não deverá ser possível fazer ações e chamadas para usuários inexistentes |CT002 – Testar pesquisa de usuário inexistente;|
-||CT003 – Testar exclusão de usuário inexistente;|
-|Não deve ser possível criar um usuário com e-mail já utilizado| CT004 – Teste utilizando credenciais válidas já utilizadas;|
-|Caso seja colocado informações de um ID inexistente no verbo PUT, deverá ser criado um novo usuário | CT005 – Teste utilizando um id válido não utilizado;|
-|Não deve ser possível cadastrar usuário com e-mail já utilizado utilizando PUT| CT006 – Teste utilizando um e-mail válido já utilizado;|
-|Não deverá ser possível cadastrar usuários com e-mails de provedor gmail e hotmail| CT007 – Teste utilizando e-mail de provedores “gmail” ou “hotmail”;|
-|Os e-mails devem seguir um padrão válido de e-mail para o cadastro|CT008 – Teste utilizando e-mail’s válidos;|
-||CT009 – Teste utilizando e-mail’s inválidos;|
-||CT010 - Teste utilizando mais de um campo de validação|
-|As senhas devem possuir no mínimo 5 caracteres e no máximo 10 caracteres|CT011 - Teste utilizando senhas com menos do mínimo de 5 caracteres;|
-||CT012 – Teste utilizando senhas com mais que o máximo de 10 caracteres.|
+Os testes serão feitos na API: Cinema API. Utilizando da ferramenta Postman para realização desses testes funcionais e k6 para não funcionais.
+## 6. Matriz de Rastreabilidade de Testes
+
+### Requisitos Funcionais:
+
+| Requisito ID | Cenários                            | Casos de Teste                                          | Prioridade | Status         |
+|:------------:|:-----------------------------------:|:-------------------------------------------------------:|:---------:|:--------------:|
+| RF001        | Criando um Novo Filme               | CT001 – Criar filme com descrição vazia            | Média      | Não Executado  |
+| RF001        |                                     | CT002 – Criar filme com título repetido                 | Alta      | Não Executado  |
+| RF001        |                                     | CT003 – Criar filme com `launchDate` no passado         | Alta    | Não Executado  |
+| RF001        |                                     | CT004 – Criar filme com todos os campos corretos       | Média     | Não Executado  |
+| RF001        |                                     | CT005 – Criar filme com `showTime` vazio                     | Alta     | Não Executado  |
+| RF002        | Obter a lista de filmes             | CT006 – Listar filmes via `GET`                            | Baixa     | Não Executado  |
+| RF003        | Obter detalhes de um filme por ID   | CT007 – Buscar filme com `id` inexistente| Média     | Não Executado  |
+| RF003        |                                     | CT008 – Buscar filme com `id` recentemente excluído    | Média     | Não Executado  |
+| RF003        |                                     | CT009 – Buscar filme com `id` de filme cadastrado        | Média      | Não Executado  |
+| RF004        | Atualizando detalhes de um filme por ID | CT010 – Testar com `id` inexistente   | Alta      | Não Executado  |
+| RF004        |                                     | CT011 – Atualizar título para um título já existente        | Alta      | Não Executado  |
+| RF004        |                                     | CT012 – Atualizar filme com todos os campos corretos  | Média     | Não Executado  |
+| RF005        | Excluindo um filme por ID           | CT013 – Excluir filme com `id` inexistente       | Baixa     | Não Executado  |
+| RF005        |                                     | CT014 – Excluir filme com `id` de filme existente            | Média      | Não Executado  |
+| RF005        |                                     | CT015 – Excluir filme com tickets cadastrados                | Alta      | Não Executado  |
+| RF006        | Criando ticket para um filme  | CT016 – Teste utilizando `ID` de um filme inexistente| Alta      | Não Executado  |
+| RF006        |                                   | CT017 – Teste utilizando `userID` repetido                        | Alta      | Não Executado  |
+| RF006        |                                   | CT018 – Teste utilizando `showTime` no passado             | Média     | Não Executado  |
+| RF006        |                     | CT019 – Teste com mais de um campo de validação inválido        | Média     | Não Executado  |
+| RF006        |                                   | CT020 – Teste utilizando `seatNumber` e `price` inválidos  | Alta      | Não Executado  |
+| RF006        |                                   | CT021 – Teste utilizando todos os campos válidos           | Alta      | Não Executado  |
+| RF007        | Obter a lista de tickets          | CT022 – Listar tickets por meio do `GET`              | Baixa     | Não Executado  |
+| RF008| Obter detalhes de um ticket por ID| CT023 – Buscar ticket com `id` inexistente         | Média     | Não Executado  |
+| RF008        |                                   | CT024 – Buscar ticket com `id` recentemente excluído    | Média     | Não Executado  |
+| RF008        |                                   | CT025 – Buscar ticket com `id` de ticket cadastrado        | Alta      | Não Executado  |
+| RF009| Atualizando os detalhes de um ticket por ID | CT026 – Testar com `id` inexistente     | Alta      | Não Executado  |
+| RF009        |                                   | CT027 – Atualizar título do ticket para um já existente    | Alta      | Não Executado  |
+| RF009        |                                   | CT028 – Atualizar ticket com campos corretos e `id` válido | Média     | Não Executado  |
+| RF010        | Excluindo um ticket por ID        | CT029 – Excluir ticket com `id` inexistente        | Média     | Não Executado  |
+| RF010        |                                   | CT030 – Excluir ticket com `id` de ticket existente        | Alta      | Não Executado  |
+| RF010        |                                   | CT031 – Excluir ticket com tickets cadastrados             | Alta      | Não Executado  |
+
+### Legenda:
+- **Requisito ID**: Referência ao requisito funcional do sistema.
+- **Cenários**: Ação ou fluxo do sistema a ser testado.
+- **Casos de Teste**: Detalhe específico do teste que será realizado.
+- **Prioridade**: Indicação da importância do teste (Alta, Média, Baixa).
+- **Status**: Situação atual da execução do teste (Não Executado, Em Andamento, Aprovado, Reprovado).
+
+
 	
 ## 7.	Como os resultados dos testes serão divulgados
 Irá ter print dos resultados obtidos na ferramenta do Postman junto ao suas descrições como por exemplo:<br>
@@ -52,9 +155,9 @@ Resultado obtido: O usuário recebe o CODE 201 e seu id.<br>
 ### 7.1 Casos de teste
 Casos de testes serão compartilhados em um arquivo separado, onde será explicado e junto com suas evidências.<a href="./"></a>
 ## 8.   Testes candidatos à automação
-Analizando os testes, foi entendido que fazer a automatização de POST (cadastrar usuário), DELETE (exclusão de usuários) e GET (listar usuários), seriam algo que poderia ser facilmente automatizados, para evitar retrabalho e podendo ser utilizado em qualquer fase na hora dos testes. Calculando o número que é afetado por esses verbos seria: 8/12 = 0,666666667 = 67%. Ou seja, iria 3/5 do swagger, o que poderia acelerar futuros testes de regressão.
+
 ## 9.	Cronograma.
-Período de início: 27/06/24<br>
-Data de entrega: 11/07/24
+Período de início: 23/09/24<br>
+Data de entrega: 04/07/24
 
 <a href="../README.md">README</a>
