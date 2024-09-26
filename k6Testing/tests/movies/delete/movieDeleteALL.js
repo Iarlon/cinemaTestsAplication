@@ -17,12 +17,4 @@ export default function() {
         const resDel = baseRest.del(ENDPOINTS.MOVIE_ENDPOINT + `/${movie._id}`);
         baseChecks.checkStatusCode(resDel, 200);
     }
-
-    // let movie = movies[Math.floor(Math.random() * movies.length)];
-    // console.log(movie)
-    // sleep(1)
-
-    // const resDel = baseRest.del(ENDPOINTS.MOVIE_ENDPOINT + `/${ids}`)
-    // baseChecks.checkStatusCode(resDel, 200)
-    // sleep(1)
 }
