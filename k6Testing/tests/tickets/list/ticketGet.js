@@ -6,7 +6,7 @@ const baseUri = testConfig.environment.hml.url
 const baseRest = new BaseRest(baseUri)
 
 export default function() {
-    const resGet = baseRest.get(ENDPOINTS.MOVIE_ENDPOINT)
+    const resGet = baseRest.get(ENDPOINTS.TICKET_ENDPOINT)
 
     baseChecks.checkStatusCode(resGet, 200)
 }

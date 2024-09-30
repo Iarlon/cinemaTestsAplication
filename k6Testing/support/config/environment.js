@@ -35,6 +35,17 @@ export const testConfig = {
                 thresholds: thresholds.smoke
            
             },
+            loadTestDeleteMovie: {
+                stages: [
+                    {duration: '5s', target: 50},
+                    {duration: '10s', target: 100},
+                    {duration: '10s', target: 150},
+                    {duration: '30s', target: 150},
+                    {duration: '5s', target: 100}
+                  ],
+                    rps: 30,
+                    thresholds: thresholds.default
+            },
             loadTest: {
                 stages: [
                     {duration: '30s', target: 100},

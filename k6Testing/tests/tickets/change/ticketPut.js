@@ -7,25 +7,28 @@ const baseUri = testConfig.environment.hml.url;
 const baseRest = new BaseRest(baseUri);
 
 export function setup () {
-    const resGet = baseRest.get(ENDPOINTS.MOVIE_ENDPOINT)
+    const resGet = baseRest.get(ENDPOINTS.TICKET_ENDPOINT)
 
     baseChecks.checkStatusCode(resGet, 200)
     
-    return {filme: resGet.json()}
+    return {ticket: resGet.json()}
 }
 
 export default function(data) {
-    const movies = data.filme
-    let movie = movies[Math.floor(Math.random() * movies.length)];
+    const tickets = data.ticket
+    let ticket = tickets[Math.floor(Math.random() * tickets.length)];
+    let ticketId = ticket._id
+    console.log(ticketId)
 
     const payload = {
-        title: `modificadooooo`,
-        description: `Descrição modificada`,
-        launchdate: 'launchDate',
-        showtimes: ['oneDayAfterLaunchDate']
-    }
+        "movieId": "modificado",
+        "userId": "alguém",
+        "seatNumber": 10,
+        "price": 2,
+        "showtime": "2024-09-25T18:08:47.428Z"
+      }
      
-    const resPut = baseRest.put(ENDPOINTS.MOVIE_ENDPOINT + `/${movie._id}`, payload)
+    const resPut = baseRest.put(ENDPOINTS.TICKET_ENDPOINT + `/${ticketId}`, payload)
     baseChecks.checkStatusCode(resPut, 200)
     sleep(1)
 }

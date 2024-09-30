@@ -1,7 +1,5 @@
 import { BaseChecks, BaseRest, ENDPOINTS, testConfig } from '../../../support/base/baseTest.js';
-import { sleep } from 'k6';
 
-export const options = testConfig.options.smokeThresholds
 const baseChecks = new BaseChecks
 const baseUri = testConfig.environment.hml.url
 const baseRest = new BaseRest(baseUri)
