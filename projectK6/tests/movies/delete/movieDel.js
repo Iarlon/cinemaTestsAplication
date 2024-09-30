@@ -17,5 +17,4 @@ export default function() {
     const resDel = baseRest.del(ENDPOINTS.MOVIE_ENDPOINT + `/${movie._id}`)
     baseChecks.checkStatusCode(resDel, 200)
     sleep(1)
-
 }

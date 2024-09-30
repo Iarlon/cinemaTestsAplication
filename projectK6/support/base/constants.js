@@ -1,4 +1,4 @@
 export const ENDPOINTS = {
     MOVIE_ENDPOINT: '/movies',
-    TICKETS_ENDPOINT: '/tickets'
+    TICKET_ENDPOINT: '/tickets'
 }

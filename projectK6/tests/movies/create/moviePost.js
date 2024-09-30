@@ -2,14 +2,10 @@ import { sleep } from 'k6';
 import { BaseChecks , BaseRest, ENDPOINTS, testConfig, } from '../../../support/base/baseTest.js';
 import { SharedArray } from 'k6/data'
 
-// export const options = {...testConfig.options.scenarios.smokeTest}
+export const options = {...testConfig.options.scenarios.smokeTest}
 const baseChecks = new BaseChecks;
 const baseUri = testConfig.environment.hml.url;
 const baseRest = new BaseRest(baseUri);
-export const options = {
-    vus: 1,
-    duration: '1s', 
-  };
 
 const data = new SharedArray('movies', function () {
 const jsonData = JSON.parse(open('../../../data/dynamic/movie.json'));

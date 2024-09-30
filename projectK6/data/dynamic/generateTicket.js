@@ -8,8 +8,8 @@ const tickets = [];
 
 for(let i = 0; i < quantidade; i++) {
     const ticket = {
-        ticketId: algo,
-        userId: alguém,
+        ticketId: faker.database.mongodbObjectId(),
+        userId: faker.database.mongodbObjectId(),
         seatNumber: faker.number.int({ min: 0, max: 99 }),
         price: faker.number.int({ min: 0, max: 60 }),
         showtime: '2024-09-25T18:08:47.428Z'

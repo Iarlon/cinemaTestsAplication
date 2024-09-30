@@ -92,6 +92,12 @@ Iarlon Soares da Silva Oliveira
   - O tempo médio de resposta para a reserva de um ingresso não deve exceder 300 milissegundos.
   - A API deve ser capaz de processar pelo menos 30 solicitações de exclusão de tickets por segundo.
   - O tempo médio de resposta para a exclusão de um ticket não deve exceder 400 milissegundos.
+  - A API deve ser capaz de responder a solicitações GET de listagem de tickets em menos de 100 milissegundos.
+
+- **RNF003 - Desempenho da API fluxo:**
+  - A API deve ser capaz de processar pelo menos 20 solicitações de reserva de ingressos e criação de filmes por segundo.
+  - O tempo médio de resposta para a não deve exceder 300 milissegundos.
+  - A API deve ser capaz de processar pelo menos 30 solicitações de exclusão de tickets por segundo.
 
 
 
@@ -125,25 +131,41 @@ Os testes serão feitos na API: Cinema API. Utilizando da ferramenta Postman par
 | RF006        |                                   | CT020 – Teste utilizando `seatNumber` e `price` inválidos  | Alta      | Não Executado  |
 | RF006        |                                   | CT021 – Teste utilizando todos os campos válidos           | Alta      | Não Executado  |
 | RF007        | Obter a lista de tickets          | CT022 – Listar tickets por meio do `GET`              | Baixa     | Não Executado  |
-| RF008| Obter detalhes de um ticket por ID| CT023 – Buscar ticket com `id` inexistente         | Média     | Não Executado  |
+| RF008        | Obter detalhes de um ticket por ID| CT023 – Buscar ticket com `id` inexistente         | Média     | Não Executado  |
 | RF008        |                                   | CT024 – Buscar ticket com `id` recentemente excluído    | Média     | Não Executado  |
 | RF008        |                                   | CT025 – Buscar ticket com `id` de ticket cadastrado        | Alta      | Não Executado  |
-| RF009| Atualizando os detalhes de um ticket por ID | CT026 – Testar com `id` inexistente     | Alta      | Não Executado  |
+| RF009        | Atualizando os detalhes de um ticket por ID | CT026 – Testar com `id` inexistente     | Alta      | Não Executado  |
 | RF009        |                                   | CT027 – Atualizar título do ticket para um já existente    | Alta      | Não Executado  |
 | RF009        |                                   | CT028 – Atualizar ticket com campos corretos e `id` válido | Média     | Não Executado  |
 | RF010        | Excluindo um ticket por ID        | CT029 – Excluir ticket com `id` inexistente        | Média     | Não Executado  |
-| RF010        |                                   | CT030 – Excluir ticket com `id` de ticket existente        | Alta      | Não Executado  |
-| RF010        |                                   | CT031 – Excluir ticket com tickets cadastrados             | Alta      | Não Executado  |
-| RNF001     | Desempenho da API rota movies | CT032 - Smoke test rota movies | Alta      | Não Executado  |
-| RNF001     |                                    | CT033 - Load test rota movies | Alta      | Não Executado  |
-| RNF001     |                                    | CT034 - Pike test rota movies | Alta      | Não Executado  |
-| RNF001     |                                    | CT035 - Stress test rota movies | Média      | Não Executado  |
-| RNF001     |                                    | CT036 - BreakPoint test rota movies | Baixa      | Não Executado  |
-| RNF002     | Desempenho da API rota movies | CT037 - Smoke test rota tickets | Alta      | Não Executado  |
-| RNF002     |                                    | CT038 - Load test rota tickets | Alta      | Não Executado  |
-| RNF002     |                                    | CT039 - Pike test rota tickets | Alta      | Não Executado  |
-| RNF002     |                                    | CT040 - Stress test rota tickets | Média      | Não Executado  |
-| RNF002     |                                    | CT041 - BreakPoint test rota tickets | Baixa      | Não Executado  |
+| RF010        |                                   | CT030 – Excluir ticket com `id` de ticket existente            | Alta      | Não Executado  |
+| RF010        |                                   | CT031 – Excluir ticket com tickets cadastrados                 | Alta      | Não Executado  |
+| RNF001       | Desempenho da API rota movies | CT032 - Criar filme                                         | Alta | Não Executado  |
+| RNF001       |                                    | CT033 - Listar filmes                                                         | Alta      | Não Executado  |
+| RNF001       |                                    | CT034 - Listar por meio do `id`                                         | Médio      | Não Executado  |
+| RNF001       |                                    | CT035 - Atualizar filmes                                                    | Médio      | Não Executado  |
+| RNF001       |                                    | CT036 - Exclusão de filme Baixa                                       | Alta      | Não Executado  |
+| RNF001       | Desempenho da API rota movies | CT037 - Smoke test rota movies                    | Alta      | Não Executado  |
+| RNF001       |                                    | CT038 - Load test rota movies                                          | Alta      | Não Executado  |
+| RNF001       |                                    | CT039 - Pike test rota movies                                           | Alta      | Não Executado  |
+| RNF001       |                                    | CT040 - Stress test rota movies                                        | Média      | Não Executado  |
+| RNF001       |                                    | CT041 - BreakPoint test rota movies                                | Baixa      | Não Executado  |
+| RNF002       | Desempenho da API rota movies | CT042 - Criar ticket                                         | Alta      | Não Executado  |
+| RNF002       |                                    | CT043 - Listar ticket                                                          | Alta      | Não Executado  |
+| RNF002       |                                    | CT044 - Listar ticket por `id`                                              | Baixa      | Não Executado  |
+| RNF002       |                                    | CT045- Atualizar ticket                                                     | Alta      | Não Executado  |
+| RNF002       |                                    | CT046 - Exclusão de ticket                                                | Alta      | Não Executado  |
+| RNF002       | Desempenho da API rota movies | CT047 - Smoke test rota tickets                     | Alta      | Não Executado  |
+| RNF002       |                                    | CT048 - Load test rota tickets                                           | Alta      | Não Executado  |
+| RNF002       |                                    | CT049 - Pike test rota tickets                                            | Alta      | Não Executado  |
+| RNF002       |                                    | CT050 - Stress test rota tickets                                         | Média      | Não Executado  |
+| RNF002       |                                    | CT051 - BreakPoint test rota tickets                                 | Baixa      | Não Executado  |
+| RNF003       | Desempenho da API fluxo | CT052 - Smoke test                                                  | Alta      | Não Executado  |
+| RNF003       |                                    | CT053 - Load test                                                             | Alta      | Não Executado  |
+| RNF003       |                                    | CT054 - Pike test                                                              | Baixa      | Não Executado  |
+| RNF003       |                                    | CT055- Stess test                                                              | Alta      | Não Executado  |
+| RNF003       |                                    | CT056 - BreakPoint test                                                    | Alta      | Não Executado  |
+
 
 ### Legenda:
 - **Requisito ID**: Referência ao requisito funcional do sistema.
