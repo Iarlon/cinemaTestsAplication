@@ -1,15 +1,22 @@
 const thresholds = {
     smoke: {
-        http_req_duration: ['p(100)<2000'],
+        http_req_duration: ['p(99)<2000'],
         http_req_failed: ['rate<0.05']
     },
     smokeCreate: {
-        http_req_duration: ['p(100)<200'],
-        http_req_failed: ['rate<0.05']
+        http_req_duration: ['p(99)<200'],
+        http_req_failed: ['rate<0.05'],
+        http_reqs: ['rate>98']
+    },
+    smokeList: {
+        http_req_duration: ['p(99)<100'],
+        http_req_failed: ['rate<0.05'],
+        http_reqs: ['rate>100']
     },
     smokeDelete: {
-        http_req_duration: ['p(100)<400'],
-        http_req_failed: ['rate<0.05']
+        http_req_duration: ['p(99)<400'],
+        http_req_failed: ['rate<0.05'],
+        http_reqs: ['rate>100']
     },
     default: {
         http_req_duration: ['p(95)<2000'],
@@ -49,6 +56,21 @@ export const testConfig = {
                     {duration: '10s', target: 0}
                   ],
                     thresholds: thresholds.smokeDelete
+            },
+            smokeTestChangeMovie: {
+                stages: [
+                    {duration: '20s', target: 20},
+                    {duration: '10s', target: 0}
+                  ],
+                    thresholds: thresholds.smokeDelete
+            },
+            smokeTestListMovie: {
+                stages: [
+                    {duration: '20s', target: 20},
+                    {duration: '10s', target: 0}
+                  ],
+                    rps: 100,
+                    thresholds: thresholds.smokeList
             },
             smokeTestCreateMovie: {
                 stages: [

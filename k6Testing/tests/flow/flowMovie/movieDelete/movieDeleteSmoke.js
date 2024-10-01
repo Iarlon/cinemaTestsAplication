@@ -1,5 +1,4 @@
 import { BaseChecks, BaseRest, ENDPOINTS, testConfig } from '../../../../support/base/baseTest.js';
-import { sleep } from 'k6';
 import moviePost from '../../../movies/create/moviePost.js';
 
 export const options = testConfig.options.scenarios.smokeTestDeleteMovie
@@ -30,9 +29,10 @@ export function teardown() {
 
     if (movies && movies.length > 0) {
         const movieIds = movies.map(movie => movie._id);
+        
+        console.log(`Excluindo filmes que sobraram...`);
 
         movieIds.forEach(id => {
-            console.log(`Excluindo filme com ID: ${id}`);
             const resDel = baseRest.del(ENDPOINTS.MOVIE_ENDPOINT + `/${id}`);
             
             baseChecks.checkStatusCode(resDel, 200);
