@@ -1,6 +1,6 @@
-import { BaseChecks, BaseRest, ENDPOINTS, testConfig } from '../../../../support/base/baseTest.js';
+import { BaseChecks, BaseRest, ENDPOINTS, testConfig } from '../../../../../support/base/baseTest.js';
 
-export const options = testConfig.options.smokeThresholds
+export const options = testConfig.options.scenarios.smokeTestListMovie
 const baseChecks = new BaseChecks
 const baseUri = testConfig.environment.hml.url
 const baseRest = new BaseRest(baseUri)
@@ -18,8 +18,13 @@ export function setup() {
 
 export default function() {
     const resGet = baseRest.get(ENDPOINTS.MOVIE_ENDPOINT)
-
     baseChecks.checkStatusCode(resGet, 200)
+    const movies = resGet.json()
+    let movie = movies[Math.floor(Math.random() * movies.length)];
+
+    const resGetId = baseRest.get(ENDPOINTS.MOVIE_ENDPOINT + `/${movie._id}`)
+
+    baseChecks.checkStatusCode(resGetId, 200)
 }
 
 export function teardown() {

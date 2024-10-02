@@ -22,14 +22,6 @@ export default function() {
     }
     const res = baseRest.post(ENDPOINTS.MOVIE_ENDPOINT, payload)
     baseChecks.checkStatusCode(res, 201)
-
-    const resGet = baseRest.get(ENDPOINTS.MOVIE_ENDPOINT)
-    const moviesGet = resGet.json()
-    
-    let movieDel = moviesGet[Math.floor(Math.random() * moviesGet.length)];
-
-    const resDel = baseRest.del(ENDPOINTS.MOVIE_ENDPOINT + `/${movieDel._id}`)
-    baseChecks.checkStatusCode(resDel, 200)
 }
 
 export function teardown() {

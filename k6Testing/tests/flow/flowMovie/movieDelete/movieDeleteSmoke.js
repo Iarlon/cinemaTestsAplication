@@ -1,5 +1,5 @@
 import { BaseChecks, BaseRest, ENDPOINTS, testConfig } from '../../../../support/base/baseTest.js';
-import moviePost from '../../../movies/create/moviePost.js';
+import moviePost from '../../../../support/communs/moviePost.js';
 
 export const options = testConfig.options.scenarios.smokeTestDeleteMovie
 const baseChecks = new BaseChecks

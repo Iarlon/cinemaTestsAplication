@@ -8,10 +8,20 @@ const thresholds = {
         http_req_failed: ['rate<0.05'],
         http_reqs: ['rate>98']
     },
+    smokeCreateTicket: {
+        http_req_duration: ['p(99)<300'],
+        http_req_failed: ['rate<0.05'],
+        http_reqs: ['rate>50']
+    },
     smokeList: {
         http_req_duration: ['p(99)<100'],
         http_req_failed: ['rate<0.05'],
         http_reqs: ['rate>100']
+    },
+    smokeList: {
+        http_req_duration: ['p(99)<50'],
+        http_req_failed: ['rate<0.05'],
+        http_reqs: ['rate>50']
     },
     smokeDelete: {
         http_req_duration: ['p(99)<400'],
@@ -72,15 +82,30 @@ export const testConfig = {
                     rps: 100,
                     thresholds: thresholds.smokeList
             },
-            smokeTestCreateMovie: {
+            smokeTestListTicket: {
                 stages: [
                     {duration: '20s', target: 20},
                     {duration: '10s', target: 0}
                   ],
                     rps: 100,
+                    thresholds: thresholds.smokeList
+            },
+            smokeTestCreateMovie: {
+                stages: [
+                    {duration: '20s', target: 20},
+                    {duration: '10s', target: 0}
+                  ],
+                  rps:130,
                     thresholds: thresholds.smokeCreate
             },
-            
+            smokeTestCreateTicket: {
+                stages: [
+                    {duration: '20s', target: 20},
+                    {duration: '10s', target: 0}
+                  ],
+                  rps:100,
+                    thresholds: thresholds.smokeCreateTicket
+            },
             loadTest: {
                 stages: [
                     {duration: '30s', target: 100},

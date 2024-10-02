@@ -1,10 +1,9 @@
-import { sleep } from 'k6';
-import { BaseChecks , BaseRest, ENDPOINTS, testConfig, } from '../../../support/base/baseTest.js';
+import { BaseChecks, BaseRest, ENDPOINTS, testConfig } from '../../../../support/base/baseTest.js';
 
-export const options = {...testConfig.options.scenarios.smokeTest}
-const baseChecks = new BaseChecks;
-const baseUri = testConfig.environment.hml.url;
-const baseRest = new BaseRest(baseUri);
+export const options = testConfig.options.scenarios.smokeTestListTicket
+const baseChecks = new BaseChecks
+const baseUri = testConfig.environment.hml.url
+const baseRest = new BaseRest(baseUri)
 
 export function setup() {
     const payload = {
@@ -20,18 +19,14 @@ export function setup() {
 
     baseChecks.checkStatusCode(resGet, 200)
     
-    return {filme: resGet.json()}
-}
-
-
-export default function(data) {
-    const filme = data.filme
+    const filme = resGet.json()
     const filmeAleatório = filme[Math.floor(Math.random() * filme.length)]
+
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
       }
 
-    const payload = {
+    const payloadPost = {
         movieId: filmeAleatório._id,
         userId: filmeAleatório._id + 'User',
         seatNumber: getRandomInt(99),
@@ -39,10 +34,15 @@ export default function(data) {
         showtime: '2024-09-25T18:08:47.428Z'
     }
     
-    const res = baseRest.post(ENDPOINTS.TICKET_ENDPOINT, payload)
+    const resPost = baseRest.post(ENDPOINTS.TICKET_ENDPOINT, payloadPost)
         
-    baseChecks.checkStatusCode(res, 201)
-    sleep(1)
+    baseChecks.checkStatusCode(resPost, 201)
+}
+
+export default function() {
+    const resGet = baseRest.get(ENDPOINTS.TICKET_ENDPOINT)
+
+    baseChecks.checkStatusCode(resGet, 200)
 }
 
 export function teardown() {

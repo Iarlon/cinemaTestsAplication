@@ -1,7 +1,7 @@
 import { sleep } from 'k6';
-import { BaseChecks , BaseRest, ENDPOINTS, testConfig, } from '../../../support/base/baseTest.js';
+import { BaseChecks , BaseRest, ENDPOINTS, testConfig, } from '../../../../support/base/baseTest.js';
 
-export const options = {...testConfig.options.scenarios.smokeTest}
+export const options = {...testConfig.options.scenarios.smokeTestCreateTicket}
 const baseChecks = new BaseChecks;
 const baseUri = testConfig.environment.hml.url;
 const baseRest = new BaseRest(baseUri);
@@ -27,6 +27,7 @@ export function setup() {
 export default function(data) {
     const filme = data.filme
     const filmeAleatório = filme[Math.floor(Math.random() * filme.length)]
+
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
       }
@@ -42,7 +43,6 @@ export default function(data) {
     const res = baseRest.post(ENDPOINTS.TICKET_ENDPOINT, payload)
         
     baseChecks.checkStatusCode(res, 201)
-    sleep(1)
 }
 
 export function teardown() {
