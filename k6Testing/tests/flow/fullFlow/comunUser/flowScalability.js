@@ -1,7 +1,7 @@
 import { BaseChecks , BaseRest, ENDPOINTS, testConfig, moviePost, deleteAll} from '../../../../support/base/baseTest.js';
 import { sleep } from 'k6';
 
-export const options = testConfig.options.scenarios.smokeTestFlow
+export const options = testConfig.options.scenarios.scalabilityTestFlow
 const baseChecks = new BaseChecks;
 const baseUri = testConfig.environment.hml.url;
 const baseRest = new BaseRest(baseUri);
@@ -32,6 +32,7 @@ export default function() {
     }
     const resPost = baseRest.post(ENDPOINTS.TICKET_ENDPOINT, payload)
     sleep(1)
+
     
 
     baseChecks.checkStatusCode(resGet, 200)

@@ -30,15 +30,23 @@ const thresholds = {
     },
     default: {
         http_req_duration: ['p(95)<5000'],
-        http_req_failed: ['rate<0.05']
+        http_req_failed: ['rate<0.05'],
+        http_reqs: ['rate>40']
     },
     stress: {
         http_req_duration: ['p(95)<5000'],
-        http_req_failed: ['rate<0.10']
+        http_req_failed: ['rate<0.10'],
+        http_reqs: ['rate>80']
+    },
+    scalability: {
+        http_req_duration: ['p(95)<5000'],
+        http_req_failed: ['rate<0.10'],
+        http_reqs: ['rate>50']
     },
     pike: {
         http_req_duration: ['p(95)<5000'],
-        http_req_failed: ['rate<0.10']
+        http_req_failed: ['rate<0.10'],
+        http_reqs: ['rate>100']
     }
 };
 
@@ -117,7 +125,20 @@ export const testConfig = {
                     rps: 50,
                     thresholds: thresholds.default
             },
-            pikeTestFlow: {
+            loadTestFlowComun: {
+                setupTimeout:'2m',
+                teradownTimeout:'2m',
+                stages: [
+                    {duration: '30s', target: 100},
+                    {duration: '30s', target: 200},
+                    {duration: '30s', target: 300},
+                    {duration: '1m', target: 300},
+                    {duration: '30s', target: 100}
+                  ],
+                    rps: 100,
+                    thresholds: thresholds.default
+            },
+            spikeTestFlow: {
                 stages:[
                     {duration: '10s', target: 300},
                     {duration: '10s', target: 700},
@@ -129,17 +150,34 @@ export const testConfig = {
             metrics: {
 
             },
-            breakPointTest:{
+            scalabilityTestFlow:{
                 stages:[
+                    {duration: '3s', target: 10},
+                    {duration: '3s', target: 20},
+                    {duration: '10s', target: 50},
                     {duration: '3s', target: 100},
-                    {duration: '3s', target: 1000},
-                    {duration: '10s', target: 20000}
+                    {duration: '3s', target: 150},
+                    {duration: '10s', target: 250},
+                    {duration: '3s', target: 300},
+                    {duration: '3s', target: 350},
+                    {duration: '10s', target: 500},
+                    {duration: '3s', target: 600},
+                    {duration: '3s', target: 700},
+                    {duration: '10s', target: 1000},
+                    {duration: '3s', target: 1200},
+                    {duration: '3s', target: 1400},
+                    {duration: '10s', target: 2000},
+                    {duration: '20s', target: 0}
                 ],
+                rps:200,
+                thresholds: thresholds.scalability
             },
             stressTestFlow:{
                 stages: [
-                    {duration: '30s', target: 500 },
-                    {duration: '1m', target: 500 },
+                    {duration: '30s', target: 300 },
+                    {duration: '1m', target: 600 },
+                    {duration: '2m', target: 600 },
+                    {duration: '1m', target: 300 },
                     {duration: '30s', target: 0 }
                     ],
                     rps: 150,

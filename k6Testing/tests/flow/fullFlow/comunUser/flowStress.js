@@ -1,7 +1,7 @@
 import { BaseChecks , BaseRest, ENDPOINTS, testConfig, moviePost, deleteAll} from '../../../../support/base/baseTest.js';
 import { sleep } from 'k6';
 
-export const options = testConfig.options.scenarios.smokeTestFlow
+export const options = testConfig.options.scenarios.stressTestFlow
 const baseChecks = new BaseChecks;
 const baseUri = testConfig.environment.hml.url;
 const baseRest = new BaseRest(baseUri);
