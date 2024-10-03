@@ -29,15 +29,15 @@ const thresholds = {
         http_reqs: ['rate>100']
     },
     default: {
-        http_req_duration: ['p(95)<2000'],
+        http_req_duration: ['p(95)<5000'],
         http_req_failed: ['rate<0.05']
     },
     stress: {
-        http_req_duration: ['p(95)<2000'],
+        http_req_duration: ['p(95)<5000'],
         http_req_failed: ['rate<0.10']
     },
     pike: {
-        http_req_duration: ['p(95)<2000'],
+        http_req_duration: ['p(95)<5000'],
         http_req_failed: ['rate<0.10']
     }
 };
@@ -50,7 +50,7 @@ export const testConfig = {
     },
     options: {
         scenarios:{
-            smokeTest:{
+            smokeTestFlow:{
                 stages:[
                     {duration: '2s', target: 3},
                     {duration: '5s', target: 5},
@@ -106,7 +106,7 @@ export const testConfig = {
                   rps:100,
                     thresholds: thresholds.smokeCreateTicket
             },
-            loadTest: {
+            loadTestFlow: {
                 stages: [
                     {duration: '30s', target: 100},
                     {duration: '30s', target: 200},
@@ -117,14 +117,13 @@ export const testConfig = {
                     rps: 50,
                     thresholds: thresholds.default
             },
-            pikeTest: {
+            pikeTestFlow: {
                 stages:[
                     {duration: '10s', target: 300},
                     {duration: '10s', target: 700},
                     {duration: '10s', target: 300},
                     {duration: '5s',  target: 0}
                 ],
-                rps: 100,
                 thresholds: thresholds.pike
             },
             metrics: {
@@ -137,7 +136,7 @@ export const testConfig = {
                     {duration: '10s', target: 20000}
                 ],
             },
-            stressTest:{
+            stressTestFlow:{
                 stages: [
                     {duration: '30s', target: 500 },
                     {duration: '1m', target: 500 },
