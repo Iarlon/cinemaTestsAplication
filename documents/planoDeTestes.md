@@ -11,8 +11,10 @@ Para melhor entendimento foi criado também o mapa mental como forma de nortear 
 <img src="../assets/cinemaAPI.png" alt="mapa mental API"><br>
 #### Mapa mental dos testes feitos no k6:
 <img src="../assets/PerformanceK6.png" alt="k6 mapa mental">
+
 ## 3.	Pessoas envolvidas
 Iarlon Soares da Silva Oliveira
+
 ## 4. Critérios de aceitação
 ### 4.1 Definition of Ready (DoR)
 A Definition of Ready (DoR) assegura que todos os requisitos estejam claramente definidos e que estejam prontos para o desenvolvimento e testes. Para que um requisito seja considerado "pronto", ele deve atender aos seguintes critérios:
