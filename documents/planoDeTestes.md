@@ -9,9 +9,27 @@ Iniciou-se testes a uma API de Cinema onde por meio de sua própria documentaç�
 Para melhor entendimento foi criado também o mapa mental como forma de nortear a sequência tomada para produzir o planejamento que seria utilizado para a criação dos testes.<br>
 ## 3.	Pessoas envolvidas
 Iarlon Soares da Silva Oliveira
-## 4. Requisitos Funcionais e Não Funcionais
+## 4. Critérios de aceitação
+### 4.1 Definition of Ready (DoR)
+A Definition of Ready (DoR) assegura que todos os requisitos estejam claramente definidos e que estejam prontos para o desenvolvimento e testes. Para que um requisito seja considerado "pronto", ele deve atender aos seguintes critérios:
 
-### Movies
+- Todos os requisitos funcionais e não funcionais estão documentados.
+- Os casos de teste estão associados a cada requisito e foram revisados.
+- As especificações e critérios de aceitação estão claros e compreensíveis.
+- Os stakeholders foram consultados e as expectativas alinhadas.
+- Não existem impedimentos conhecidos para iniciar os testes.
+
+### 4.2 Definition of Done (DoD)
+A Definition of Done (DoD) define quando uma tarefa de teste ou desenvolvimento é considerada completa. Para que um teste ou uma funcionalidade seja considerado "feito", ele deve atender aos seguintes critérios:
+
+- Todos os casos de teste associados foram executados.
+- Todos os bugs identificados foram documentados e, se possível, corrigidos.
+- Os resultados dos testes foram documentados e compartilhados com os stakeholders.
+- A documentação foi atualizada para refletir as alterações feitas.
+- O código foi revisado e aprovado por um membro da equipe.
+
+
+### 4.3 Movies
 
 #### Requisitos Funcionais
 
@@ -53,7 +71,7 @@ Iarlon Soares da Silva Oliveira
   - A API deve ser capaz de processar pelo menos 30 solicitações de exclusão de filmes por segundo.
   - O tempo médio de resposta para a exclusão de um filme não deve exceder 400 milissegundos.
 
-### Tickets
+### 4.4 Tickets
 
 #### Requisitos Funcionais
 
