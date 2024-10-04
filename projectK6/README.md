@@ -8,7 +8,7 @@
 - Instalação do <a src="https://k6.io/docs/getting-started/installation/">**k6**</a>
 
 ## Estrutura dos arquivos
-Os arquivos foram estruturados de forma que a pasta data é onde fica as massas de códigos, a services é onde fica os serviços repetidos no código. Já na pasta support seria os de configurações para seu código. Já em Tests fica todos os testes.
+Os arquivos foram estruturados de forma que a pasta data é onde ficam as massas de códigos, a services é onde ficam os serviços repetidos no código, já na pasta support seriam os de configurações para seu código, e em Tests fica todos os testes.
 
 ## Como rodar os testes
 Para rodar os testes, primeiramente é necessário que você vá até o local dos testes. Para entar no local do arquivo você utiliza o "cd" junto ao nome do diretório que você queira no terminal. Poderá ser utilizado o vscode para executá-lo ou até mesmo o terminal para execução dos testes.

@@ -12,7 +12,7 @@
 Repository focused on cinema API testing, mainly 'non-functional' resquests of perfomance using k6.
 
 # Avisos ❗❗❗
-Para uso pleno de todas as ferramentas e recurso deste repositório, é necessário que siga os downloads no final da página por meio dos <a href="#links">LINKS</a> que foram disponibilizados. Lembre também de seguir o guia de instalação em <a href="#instalação">instalação</a> e seguir as <a href="#requisitos"> requisitos</a> para entender o que cada arquivo faz.
+Para uso pleno de todas as ferramentas e recurso deste repositório, é necessário que siga os downloads no final da página por meio dos <a href="#links">LINKS</a> que foram disponibilizados. Lembre também de seguir o guia de instalação em <a href="#instalação">instalação</a> **DE FORMA SEQUENCIAL** (siga exatamente a numeração) e seguir as <a href="#requisitos"> requisitos</a> para entender o que cada arquivo faz.
 
 ## Resumo
  Nesse repositório foi utilizado para testes a API pública <a href="https://github.com/juniorschmitz/nestjs-cinema/tree/main">nestjs-cinema</a>. Os testes foram escritos em javascript utilizando o framework K6. Para visualização dos bugs encontrados na API estarão relatados na <a>Issues</a> já o planejamento e o relatório estão na <a>wiki</a>. Para rodar os testes basta ir na pasta <a href='./projectK6/'>projectK6</a> e ler o <a href="./projectK6/README.md">README</a> para identificar quais rodar.
@@ -31,12 +31,12 @@ Para clonar a API cinema, basta você clicar em 'code' no seu repositório e cop
 git clone link-repositorio
 ```
 
-2. Instalar node:
-Para a instalação do node, basta abrir o site oficial do node clicando no<a href="https://nodejs.org/en/download/prebuilt-installer"> link</a>. Irá ter 2 links, baixe a mais estável sendo a LTS (Long-Term Support). Após isso, siga o passo a passo:
+2. Instalar node:<br>
+Para a instalação do node, basta abrir o site oficial do node clicando no<a href="https://nodejs.org/en/download/prebuilt-installer"> link</a>. Haverá 2 links, baixe a mais estável sendo a LTS (Long-Term Support). Após isso, siga o passo a passo:
 - Execute o arquivo baixado .msi e siga as instruções da instalação.
 - Certifique-se de que a opção para adicionar o Node.js ao PATH está marcada. Isso permitirá que você use os comandos node e npm diretamente no terminal.
 
-3. Executar a API localmente:
+3. Executar a API localmente:<br>
 Para executar a API localmente, basta rodar o comando `npm install` para instalar as dependências e depois executar `npm run start` para poder fazê-la rodar. Para poder visualizar se está funcionando basta escrever este endereço no seu navegador de prefência para validá-lo http://localhost:3000 Ao final basta escrever http://localhost:3000/api/docs para visualizar o Swagger da API.
 
 4. Para instalação do K6<br>
