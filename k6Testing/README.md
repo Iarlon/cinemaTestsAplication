@@ -30,5 +30,31 @@ k6 run tests/movies/create/moviePost.js
 ```
 Atente que será necessário executar passando exatamente o arquivo e seu formato como "produtoPost.js" e seu caminho.
 
+### Extra - executar testes
+Para executar os testes e ter uma melhor visualização, você pode colar esses comandos no seu terminal:
+```
+$env:K6_WEB_DASHBOARD = "true"
+$env:K6_WEB_DASHBOARD_OPEN = "true"
+$env:K6_WEB_DASHBOARD_HOST = "localhost"
+$env:K6_WEB_DASHBOARD_PORT = "5665"
+```
+Podendo ser no terminal do seu computador, que irá disponibilizar uma dashboard do próprio k6 que irá substituir o sumário do terminal, irá abrir automaticamente uma página no seu navegador principal e abrir na porta 'localhost:5665'. Assim você poderá executar o comando de executar os testes normalmente. (é necessário que realize o comando toda vez que quiser utilizar desse método)<br>
+#### Explicação do código
+`$env:K6_WEB_DASHBOARD = "true"`
+
+Esse comando ativa o dashboard web do k6. Quando o valor é definido como "true", ele habilita a funcionalidade de dashboard interativo enquanto os testes de carga estão sendo executados.
+
+`$env:K6_WEB_DASHBOARD_OPEN = "true"`
+
+Esse comando instrui o k6 a abrir automaticamente o dashboard web no navegador assim que o teste for iniciado, se o valor for "true". Isso facilita o acesso ao dashboard sem precisar abrir manualmente o endereço no navegador.
+
+`$env:K6_WEB_DASHBOARD_HOST = "localhost"`
+
+Esse comando define o host onde o dashboard web do k6 será acessível. No caso, o valor "localhost" indica que o dashboard estará disponível localmente no seu computador, acessível através do endereço http://localhost.
+
+`$env:K6_WEB_DASHBOARD_PORT = "5665"`
+
+Esse comando define a porta na qual o dashboard web do k6 vai ser servido. No caso, está definido para a porta 5665, então você acessará o dashboard na URL http://localhost:5665.
+
 ## Detalhamento do código
 Para a execução do código foi utilizado massa dinâmica com o objetivo de criar ou validar as requisições, foram criadas em sprints passadas e foram reutilizadas nesse novo código. Também foi criado uma função que retorna um token de algum usuário aleatório do banco de dados.
