@@ -14,7 +14,7 @@ Repositório focado em requisitos não funcionais. O planejamento e o relatório
 Para uso pleno de todas as ferramentas e recurso deste repositório, é necessário que siga os downloads no final da página por meio dos <a href="#links">LINKS</a> que foram disponibilizados. Lembre também de seguir o guia de instalação em <a href="#instalação">instalação</a> **DE FORMA SEQUENCIAL** (siga exatamente a numeração) e seguir as <a href="#requisitos"> requisitos</a> para entender o que cada arquivo faz.
 
 ## Resumo
- Nesse repositório foi utilizado para testes a API pública <a href="https://github.com/juniorschmitz/nestjs-cinema/tree/main">nestjs-cinema</a>. Os testes foram escritos em javascript utilizando o framework K6. Para visualização dos bugs encontrados na API estarão relatados na <a>Issues</a> já o planejamento e o relatório estão na <a>wiki</a>. Para rodar os testes basta ir na pasta <a href='./projectK6/'>projectK6</a> e ler o <a href="./projectK6/README.md">README</a> para identificar quais rodar.
+ Nesse repositório foi utilizado para testes a API pública <a href="https://github.com/juniorschmitz/nestjs-cinema/tree/main">nestjs-cinema</a>. Os testes foram escritos em javascript utilizando o framework K6. Para visualização dos bugs encontrados na API estarão relatados na <a href="https://github.com/Iarlon/cinemaTestsAplication/issues">Issues</a> já o planejamento e o relatório estão na <a href="https://github.com/Iarlon/cinemaTestsAplication/wiki">wiki</a>. Para rodar os testes basta ir na pasta <a href='./projectK6/'>projectK6</a> e ler o <a href="./projectK6/README.md">README</a> para identificar quais rodar.
 
 ## Requisitos
 Para utilizar do repositório é necessário:
@@ -58,3 +58,23 @@ choco install k6
 - <a href="https://chocolatey.org">Chocolatey package manager</a>;
 - <a href="https://nodejs.org/en/download/prebuilt-installer"> node</a>;
 - <a href="https://github.com/juniorschmitz/nestjs-cinema/tree/main">cinemaApi</a>;
+
+### Colaboradores:
+Agradecimentos especiais a todos que me ajudaram ou aconselharam no desenvolvimento deste projeto:
+
+- **Luiz Ferreira** (colega de trabalho)  
+- **Douglas Lima** (colega de trabalho)  
+- **Thiago Claudino** (colega de trabalho)  
+- **Matheus Rocha** (colega de trabalho)  
+- **Antonio Araujo** (colega de trabalho)  
+- **Jefferson Sandova** (colega de trabalho)  
+- **Lucas Rodrigues** (colega de trabalho)  
+
+### Agradecimentos:
+Agradecimentos especiais a:
+
+- **Daniel Souza** (tio, amigo)  
+- **Luize Carreira Gusmao** (mentora)  
+- **Rafael Vescio** (mentor)  
+- **Matheus Domingos Locatelli** (mentor)  
+- **Celso Leonardo Eugenio**  (mentor)

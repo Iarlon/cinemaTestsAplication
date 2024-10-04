@@ -7,6 +7,10 @@ Iniciou-se testes a uma API de Cinema onde por meio de sua própria documentaç�
 
 ### 2.1 Mapa mental
 Para melhor entendimento foi criado também o mapa mental como forma de nortear a sequência tomada para produzir o planejamento que seria utilizado para a criação dos testes.<br>
+#### Mapa mental da API e seus verbos:
+<img src="../assets/cinemaAPI.png" alt="mapa mental API"><br>
+#### Mapa mental dos testes feitos no k6:
+<img src="../assets/PerformanceK6.png" alt="k6 mapa mental">
 ## 3.	Pessoas envolvidas
 Iarlon Soares da Silva Oliveira
 ## 4. Critérios de aceitação

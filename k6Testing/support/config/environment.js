@@ -141,7 +141,7 @@ export const testConfig = {
             spikeTestFlow: {
                 stages:[
                     {duration: '10s', target: 300},
-                    {duration: '10s', target: 700},
+                    {duration: '10s', target: 2000},
                     {duration: '10s', target: 300},
                     {duration: '5s',  target: 0}
                 ],

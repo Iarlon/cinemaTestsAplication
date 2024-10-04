@@ -41,7 +41,7 @@ $env:K6_WEB_DASHBOARD_OPEN = "true"
 $env:K6_WEB_DASHBOARD_HOST = "localhost"
 $env:K6_WEB_DASHBOARD_PORT = "5665"
 ```
-Podendo ser no terminal do seu computador, que irá disponibilizar uma dashboard do próprio k6 que irá substituir o sumário do terminal, irá abrir automaticamente uma página no seu navegador principal e abrir na porta 'localhost:5665'. Assim você poderá executar o comando de executar os testes normalmente. (é necessário que realize o comando toda vez que quiser utilizar desse método)<br>
+Podendo ser no terminal do seu computador, que irá disponibilizar uma dashboard do próprio k6 que irá substituir o sumário do terminal, irá abrir automaticamente uma página no seu navegador principal e abrir na porta <a href="/localhost:5665">'localhost:5665'</a>. Assim você poderá executar o comando de executar os testes normalmente. (é necessário que realize o comando toda vez que quiser utilizar desse método)<br>
 #### Explicação do código
 `$env:K6_WEB_DASHBOARD = "true"`
 
