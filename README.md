@@ -9,8 +9,7 @@
 [![Cinema](https://img.shields.io/badge/Cinema-crimson)](https://github.com/juniorschmitz/nestjs-cinema/tree/main)
 
 
-Repository focused on cinema API testing, mainly 'non-functional' resquests of perfomance using k6.
-
+Repositório focado em requisitos não funcionais. O planejamento e o relatório dos testes feitos em k6 estarão na pasta 'documents' separado para melhor separação do conteúdo. <a href="/documents">Ir para a pasta</a>
 # Avisos ❗❗❗
 Para uso pleno de todas as ferramentas e recurso deste repositório, é necessário que siga os downloads no final da página por meio dos <a href="#links">LINKS</a> que foram disponibilizados. Lembre também de seguir o guia de instalação em <a href="#instalação">instalação</a> **DE FORMA SEQUENCIAL** (siga exatamente a numeração) e seguir as <a href="#requisitos"> requisitos</a> para entender o que cada arquivo faz.
 
@@ -57,4 +56,5 @@ choco install k6
 ### Links
 - <a href="https://nodejs.org/en/download/prebuilt-installer">Cinema API</a>;
 - <a href="https://chocolatey.org">Chocolatey package manager</a>;
-- <a href="https://nodejs.org/en/download/prebuilt-installer"> node</a>
+- <a href="https://nodejs.org/en/download/prebuilt-installer"> node</a>;
+- <a href="https://github.com/juniorschmitz/nestjs-cinema/tree/main">cinemaApi</a>;
