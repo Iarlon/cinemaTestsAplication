@@ -144,31 +144,28 @@ Os testes serão feitos na API: Cinema API. Utilizando da ferramenta Postman par
 
 | Requisito ID | Cenários                            | Casos de Teste                                          | Prioridade | Status         |
 |:------------:|:-----------------------------------:|:-------------------------------------------------------:|:---------:|:--------------:|
-| RNF001     | Desempenho da API rota movies | CT032 - Criar filme                                         | Alta | Não Executado  |
-| RNF001     |                                    | CT033 - Listar filmes                                                         | Alta      | Não Executado  |
-| RNF001     |                                    | CT034 - Listar por meio do `id`                                         | Médio      | Não Executado  |
-| RNF001     |                                    | CT035 - Atualizar filmes                                                    | Médio      | Não Executado  |
-| RNF001     |                                    | CT036 - Exclusão de filme                                                 | Alta      | Não Executado  |
-| RNF001     |                                    | CT037 - Smoke test rota movies                                      | Alta      | Não Executado  |
-| RNF001     |                                    | CT038 - Load test rota movies                                          | Alta      | Não Executado  |
-| RNF001     |                                    | CT039 - Pike test rota movies                                           | Alta      | Não Executado  |
-| RNF001     |                                    | CT040 - Stress test rota movies                                        | Média      | Não Executado  |
-| RNF001     |                                    | CT041 - BreakPoint test rota movies                                | Baixa      | Não Executado  |
-| RNF002     | Desempenho da API rota movies | CT042 - Criar ticket                                         | Alta      | Não Executado  |
-| RNF002     |                                    | CT043 - Listar ticket                                                          | Alta      | Não Executado  |
-| RNF002     |                                    | CT044 - Listar ticket por `id`                                              | Baixa      | Não Executado  |
-| RNF002     |                                    | CT045- Atualizar ticket                                                     | Alta      | Não Executado  |
-| RNF002     |                                    | CT046 - Exclusão de ticket                                                | Alta      | Não Executado  |
-| RNF002     |                                    | CT047 - Smoke test rota tickets                                        | Alta      | Não Executado  |
-| RNF002     |                                    | CT048 - Load test rota tickets                                           | Alta      | Não Executado  |
-| RNF002     |                                    | CT049 - Pike test rota tickets                                            | Alta      | Não Executado  |
-| RNF002     |                                    | CT050 - Stress test rota tickets                                         | Média      | Não Executado  |
-| RNF002     |                                    | CT051 - BreakPoint test rota tickets                                 | Baixa      | Não Executado  |
-| RNF003     | Desempenho da API fluxo | CT042 - Smoke test                                                  | Alta      | Não Executado  |
-| RNF003     |                                    | CT043 - Load test                                                             | Alta      | Não Executado  |
-| RNF003     |                                    | CT044 - Pike test                                                              | Baixa      | Não Executado  |
-| RNF003     |                                    | CT045- Stess test                                                              | Alta      | Não Executado  |
-| RNF003     |                                    | CT046 - BreakPoint test                                                    | Alta      | Não Executado  |
+| RNF001     | Desempenho da API rota movies | CT032 - Criar filme                                         | Alta | Aprovado  |
+| RNF001     |                                    | CT033 - Listar filmes                                                         | Alta      | Aprovado  |
+| RNF001     |                                    | CT034 - Listar por meio do `id`                                         | Médio      | Aprovado  |
+| RNF001     |                                    | CT035 - Atualizar filmes                                                    | Médio      | Aprovado  |
+| RNF001     |                                    | CT036 - Exclusão de filme                                                 | Alta      | Aprovado  |
+| RNF002     | Desempenho da API rota tickets | CT037 - Criar ticket                                         | Alta      | Aprovado  |
+| RNF002     |                                    | CT038 - Listar ticket                                                          | Alta      | Aprovado  |
+| RNF002     |                                    | CT039 - Listar ticket por `id`                                              | Baixa      | Não Executado  |
+| RNF002     |                                    | CT040- Atualizar ticket                                                     | Alta      | Não Executado  |
+| RNF002     |                                    | CT041 - Exclusão de ticket                                                | Alta      | Não Executado  |
+| RNF003     | Desempenho da API fluxo - admUser  | CT042 - Smoke test admUser                                              | Alta      | Aprovado  |
+| RNF003     |                                    | CT043 - Load test admUser                                                            | Alta      | Aprovado  |
+| RNF003     |                                    | CT044 - Spike test admUser                                                            | Baixa      | Aprovado  |
+| RNF003     |                                    | CT045- Stess test admUser                                                             | Alta      | Aprovado  |
+| RNF003     |                                    | CT046 - Scalability test admUser                                                   | Alta      | Aprovado  |
+| RNF003     | Desempenho da API fluxo - comunUser| CT047 - Smoke test comunUser                                                 | Alta      | Aprovado  |
+| RNF003     |                                    | CT048 - Load test comunUser                                                            | Alta      | Aprovado  |
+| RNF003     |                                    | CT049 - Spike test comunUser                                                             | Baixa      | Aprovado  |
+| RNF003     |                                    | CT050- Stess test comunUser                                                             | Alta      | Aprovado  |
+| RNF003     |                                    | CT051 - Scalability test comunUser                                                   | Alta      | Aprovado  |
+
+
 
 ### Legenda:
 - **Requisito ID**: Referência ao requisito funcional do sistema.
